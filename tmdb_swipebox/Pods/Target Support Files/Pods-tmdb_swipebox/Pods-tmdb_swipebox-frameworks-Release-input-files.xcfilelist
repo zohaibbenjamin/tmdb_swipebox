@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Then/Then.framework
+${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework
+${BUILT_PRODUCTS_DIR}/XCoordinator/XCoordinator.framework

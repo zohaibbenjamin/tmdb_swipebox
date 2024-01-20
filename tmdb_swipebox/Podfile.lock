@@ -1,0 +1,26 @@
+PODS:
+  - Then (3.0.0)
+  - TinyConstraints (4.0.2)
+  - XCoordinator (2.2.1):
+    - XCoordinator/Core (= 2.2.1)
+  - XCoordinator/Core (2.2.1)
+
+DEPENDENCIES:
+  - Then
+  - TinyConstraints
+  - XCoordinator (~> 2.0)
+
+SPEC REPOS:
+  trunk:
+    - Then
+    - TinyConstraints
+    - XCoordinator
+
+SPEC CHECKSUMS:
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
+  XCoordinator: 2cf9f72e10998b7a4a4bbeac3d07e071ea82fca3
+
+PODFILE CHECKSUM: 30313c619643cc4072e4aac00ec72f3377450d83
+
+COCOAPODS: 1.13.0

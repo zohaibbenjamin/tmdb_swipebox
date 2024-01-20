@@ -14,9 +14,11 @@
 		966AEB8B2B5BE14300186062 /* tmdb_swipebox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 966AEB892B5BE14300186062 /* tmdb_swipebox.xcdatamodeld */; };
 		966AEB8D2B5BE14500186062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966AEB8C2B5BE14500186062 /* Assets.xcassets */; };
 		966AEB902B5BE14500186062 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966AEB8E2B5BE14500186062 /* LaunchScreen.storyboard */; };
+		A39A5BBDFEB2F59EE15959EC /* Pods_tmdb_swipebox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F7DD0A567B057F43D24E35 /* Pods_tmdb_swipebox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72F7DD0A567B057F43D24E35 /* Pods_tmdb_swipebox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tmdb_swipebox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		966AEB7D2B5BE14300186062 /* tmdb_swipebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tmdb_swipebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		966AEB802B5BE14300186062 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		966AEB822B5BE14300186062 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		966AEB8C2B5BE14500186062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		966AEB8F2B5BE14500186062 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		966AEB912B5BE14500186062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A760C68415B97DC93430239A /* Pods-tmdb_swipebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb_swipebox.release.xcconfig"; path = "Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox.release.xcconfig"; sourceTree = "<group>"; };
+		E2DBD6AB77DD95051EDEFF9D /* Pods-tmdb_swipebox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb_swipebox.debug.xcconfig"; path = "Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39A5BBDFEB2F59EE15959EC /* Pods_tmdb_swipebox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		695750C498ED2ABEF7105179 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72F7DD0A567B057F43D24E35 /* Pods_tmdb_swipebox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		966AEB742B5BE14300186062 = {
 			isa = PBXGroup;
 			children = (
 				966AEB7F2B5BE14300186062 /* tmdb_swipebox */,
 				966AEB7E2B5BE14300186062 /* Products */,
+				E333A86D114928BDB6F2E92A /* Pods */,
+				695750C498ED2ABEF7105179 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,16 @@
 			path = tmdb_swipebox;
 			sourceTree = "<group>";
 		};
+		E333A86D114928BDB6F2E92A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2DBD6AB77DD95051EDEFF9D /* Pods-tmdb_swipebox.debug.xcconfig */,
+				A760C68415B97DC93430239A /* Pods-tmdb_swipebox.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 966AEB942B5BE14500186062 /* Build configuration list for PBXNativeTarget "tmdb_swipebox" */;
 			buildPhases = (
+				5818F49AEDF1DD0EA6F8705F /* [CP] Check Pods Manifest.lock */,
 				966AEB792B5BE14300186062 /* Sources */,
 				966AEB7A2B5BE14300186062 /* Frameworks */,
 				966AEB7B2B5BE14300186062 /* Resources */,
+				47F3F764BF311F76AFB01B6A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47F3F764BF311F76AFB01B6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5818F49AEDF1DD0EA6F8705F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tmdb_swipebox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		966AEB792B5BE14300186062 /* Sources */ = {
@@ -291,6 +360,7 @@
 		};
 		966AEB952B5BE14500186062 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2DBD6AB77DD95051EDEFF9D /* Pods-tmdb_swipebox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,6 +389,7 @@
 		};
 		966AEB962B5BE14500186062 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A760C68415B97DC93430239A /* Pods-tmdb_swipebox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
