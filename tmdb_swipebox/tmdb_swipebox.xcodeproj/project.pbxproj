@@ -29,6 +29,12 @@
 		96C1150D2B5CE62700EF3BA5 /* MovieNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1150C2B5CE62700EF3BA5 /* MovieNetworkProvider.swift */; };
 		96C115112B5CE6B700EF3BA5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C115102B5CE6B700EF3BA5 /* Movie.swift */; };
 		96C115132B5CE6E100EF3BA5 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C115122B5CE6E100EF3BA5 /* Genre.swift */; };
+		96C115162B5D189C00EF3BA5 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C115152B5D189C00EF3BA5 /* MovieDetailsViewController.swift */; };
+		96C115182B5D18AB00EF3BA5 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C115172B5D18AB00EF3BA5 /* MovieDetailsViewModel.swift */; };
+		96C1151A2B5D18B800EF3BA5 /* MovieDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C115192B5D18B800EF3BA5 /* MovieDetailsCoordinator.swift */; };
+		96C1151C2B5D2A2600EF3BA5 /* UIBarButton+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1151B2B5D2A2600EF3BA5 /* UIBarButton+Publisher.swift */; };
+		96C1151E2B5D36AC00EF3BA5 /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1151D2B5D36AC00EF3BA5 /* UIViewController+Toast.swift */; };
+		96C115202B5D37D100EF3BA5 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C1151F2B5D37D100EF3BA5 /* CustomActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,12 @@
 		96C1150C2B5CE62700EF3BA5 /* MovieNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetworkProvider.swift; sourceTree = "<group>"; };
 		96C115102B5CE6B700EF3BA5 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		96C115122B5CE6E100EF3BA5 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		96C115152B5D189C00EF3BA5 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		96C115172B5D18AB00EF3BA5 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		96C115192B5D18B800EF3BA5 /* MovieDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCoordinator.swift; sourceTree = "<group>"; };
+		96C1151B2B5D2A2600EF3BA5 /* UIBarButton+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButton+Publisher.swift"; sourceTree = "<group>"; };
+		96C1151D2B5D36AC00EF3BA5 /* UIViewController+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
+		96C1151F2B5D37D100EF3BA5 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		A760C68415B97DC93430239A /* Pods-tmdb_swipebox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb_swipebox.release.xcconfig"; path = "Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox.release.xcconfig"; sourceTree = "<group>"; };
 		E2DBD6AB77DD95051EDEFF9D /* Pods-tmdb_swipebox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb_swipebox.debug.xcconfig"; path = "Target Support Files/Pods-tmdb_swipebox/Pods-tmdb_swipebox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,12 +130,12 @@
 		966AEB972B5BE86300186062 /* AppTMDB */ = {
 			isa = PBXGroup;
 			children = (
-				96C115072B5CE15300EF3BA5 /* NetworkLayer */,
-				966AEBBF2B5C5B9700186062 /* Services */,
 				966AEBBA2B5C2D7700186062 /* Coordinators */,
-				966AEBB02B5BF15E00186062 /* TMDBUtils */,
 				966AEB982B5BE8F700186062 /* Flows */,
+				966AEBBF2B5C5B9700186062 /* Services */,
+				966AEBB02B5BF15E00186062 /* TMDBUtils */,
 				966AEBAA2B5BEFD400186062 /* UIKitUtils */,
+				96C115072B5CE15300EF3BA5 /* NetworkLayer */,
 			);
 			path = AppTMDB;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				966AEBAC2B5BF00900186062 /* UIView+SubViews.swift */,
+				96C1151F2B5D37D100EF3BA5 /* CustomActivityIndicator.swift */,
 			);
 			path = UIKitUtils;
 			sourceTree = "<group>";
@@ -171,6 +184,8 @@
 				966AEBAE2B5BF14600186062 /* MergeSink.swift */,
 				966AEBB12B5BF32700186062 /* Subscribers+Send.swift */,
 				96C1150A2B5CE54E00EF3BA5 /* Publishers+Utils.swift */,
+				96C1151B2B5D2A2600EF3BA5 /* UIBarButton+Publisher.swift */,
+				96C1151D2B5D36AC00EF3BA5 /* UIViewController+Toast.swift */,
 			);
 			path = TMDBUtils;
 			sourceTree = "<group>";
@@ -229,6 +244,9 @@
 		96C115142B5D163A00EF3BA5 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
+				96C115192B5D18B800EF3BA5 /* MovieDetailsCoordinator.swift */,
+				96C115152B5D189C00EF3BA5 /* MovieDetailsViewController.swift */,
+				96C115172B5D18AB00EF3BA5 /* MovieDetailsViewModel.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -357,8 +375,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C1151A2B5D18B800EF3BA5 /* MovieDetailsCoordinator.swift in Sources */,
+				96C115182B5D18AB00EF3BA5 /* MovieDetailsViewModel.swift in Sources */,
 				966AEBA72B5BEDA900186062 /* PopularMovieCell.swift in Sources */,
 				966AEBA42B5BEBF600186062 /* PopularMoviesViewModel.swift in Sources */,
+				96C115162B5D189C00EF3BA5 /* MovieDetailsViewController.swift in Sources */,
+				96C115202B5D37D100EF3BA5 /* CustomActivityIndicator.swift in Sources */,
 				966AEBA02B5BEB2C00186062 /* PopularMoviesCoordinator.swift in Sources */,
 				966AEBA22B5BEBE400186062 /* PopularMoviesViewController.swift in Sources */,
 				966AEBA92B5BEDBD00186062 /* MovieView.swift in Sources */,
@@ -369,9 +391,11 @@
 				96C115132B5CE6E100EF3BA5 /* Genre.swift in Sources */,
 				966AEB812B5BE14300186062 /* AppDelegate.swift in Sources */,
 				96C1150D2B5CE62700EF3BA5 /* MovieNetworkProvider.swift in Sources */,
+				96C1151E2B5D36AC00EF3BA5 /* UIViewController+Toast.swift in Sources */,
 				966AEBB92B5C257100186062 /* ViewController.swift in Sources */,
 				966AEBAD2B5BF00900186062 /* UIView+SubViews.swift in Sources */,
 				966AEBB22B5BF32700186062 /* Subscribers+Send.swift in Sources */,
+				96C1151C2B5D2A2600EF3BA5 /* UIBarButton+Publisher.swift in Sources */,
 				966AEBAF2B5BF14600186062 /* MergeSink.swift in Sources */,
 				96C115042B5CE09B00EF3BA5 /* MoviesProvider.swift in Sources */,
 				96C115112B5CE6B700EF3BA5 /* Movie.swift in Sources */,

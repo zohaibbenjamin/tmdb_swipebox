@@ -10,20 +10,19 @@ import Combine
 import XCoordinator
 
 enum PopularMoviesRoute: Route {
-    case close
+    case movieDetails(Movie)
 }
 
 final class PopularMoviesCoordinator: ViewCoordinator<PopularMoviesRoute> {
     typealias RouteHandler = (PopularMoviesRoute) -> Void
 
-   // private let nextRouteHandler: RouteHandler
+    private let nextRouteHandler: RouteHandler
 
     init(
-       // routeHandler: @escaping RouteHandler
+        nextRouteHandler: @escaping RouteHandler
     ) {
-      //  nextRouteHandler = routeHandler
         let viewController = PopularMoviesViewController()
-
+        self.nextRouteHandler = nextRouteHandler
         super.init(rootViewController: viewController)
 
         let movieProvider:MoviesProvider = MoviesProviderImpl(network: NetworkManager())
@@ -34,7 +33,7 @@ final class PopularMoviesCoordinator: ViewCoordinator<PopularMoviesRoute> {
     }
 
     override func prepareTransition(for route: RouteType) -> TransitionType {
-       // nextRouteHandler(route)
+        nextRouteHandler(route)
         return .none()
     }
 }

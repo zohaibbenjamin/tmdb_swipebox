@@ -15,13 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Stored properties
     
     private lazy var mainWindow = UIWindow()
-    private let router = AppCoordinator().strongRouter
+   // private var router: StrongRouter<AppRoute>?
+   private let router = AppCoordinator().strongRouter
 
     // MARK: UIApplicationDelegate
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let navigationController = UINavigationController()
         configureUI()
+        
         router.setRoot(for: mainWindow)
         return true
     }

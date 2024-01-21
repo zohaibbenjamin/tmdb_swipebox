@@ -10,15 +10,16 @@ import XCoordinator
 
 enum AppRoute: Route {
     case PopularMovies
-    case newsDetail(String)
+    case movieDetails(Movie)
+    case goBack
 }
 
 class AppCoordinator: NavigationCoordinator<AppRoute> {
+    private var nextRouteHandler: RouteHandler?
+    public typealias RouteHandler = (AppRoute) -> Void
 
     // MARK: Initialization
-
-    init(
-    ) {
+    init() {
         super.init(initialRoute: .PopularMovies)
     }
 
@@ -26,28 +27,28 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
 
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
-        case let .PopularMovies:
+        case .PopularMovies:
             
-        let coordinator = PopularMoviesCoordinator()
+            let coordinator = PopularMoviesCoordinator(){[weak self] childRoute in
+                switch childRoute {
+                case let .movieDetails(movie):
+                    self?.trigger(.movieDetails(movie))
+                }
+            }
             return .push(coordinator)
             
-        case .newsDetail(let news):
-            return .multiple(
-                .dismissAll(),
-                .popToRoot()
-               // deepLink(AppRoute.home(HomePageCoordinator().strongRouter),
-                       //  HomeRoute.news,
-                        // NewsRoute.newsDetail(news))
-            )
+        case let .movieDetails(movie):
+            let coordinator = MovieDetailsCoordinator(movieId: movie.id.description){ [weak self] childRoute in
+                switch childRoute {
+                case .close:
+                    self?.trigger(.goBack)
+                }
+            }
+            return .push(coordinator)
+        case .goBack:
+            return .pop()
         }
     }
-
-    // MARK: Methods
-
-    func notificationReceived() {
-        self.trigger(.newsDetail("news"))
-    }
-
 }
 
 

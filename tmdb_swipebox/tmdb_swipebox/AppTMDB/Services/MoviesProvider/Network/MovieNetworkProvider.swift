@@ -37,4 +37,15 @@ public struct MovieNetwork {
             })
             .eraseToAnyPublisher()
     }
+    
+    func getMovieDetail(
+        movieId: String?
+    ) -> AnyPublisher<Movie, Error> {
+        networkService.getDataWithAuthnAppendID(endpoint: .movieDetail, params: movieId, type: Movie.self)
+            .mapError({ error in
+                return error
+            })
+            .eraseToAnyPublisher()
+    }
+    
 }

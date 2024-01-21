@@ -10,8 +10,9 @@ import XCoordinator
 
 protocol PopularMoviesViewModel {
     var onViewLoaded: Subscribers.MergeSink<Void> { get }
-    var onBack: Subscribers.MergeSink<Void> { get }
+    var onClickMovie: Subscribers.MergeSink<Movie> { get }
     var isLoading: AnyPublisher<Bool, Never> { get }
+    var errorPublisher: AnyPublisher<Error, Never> { get }
     var moviesPublisher: AnyPublisher<Movies,Never> { get }
     var searchMovie: Subscribers.MergeSink<String> { get }
     
@@ -39,13 +40,28 @@ final class PopularMoviesViewModelImpl {
 }
 
 extension PopularMoviesViewModelImpl: PopularMoviesViewModel {
+    var onClickMovie: Subscribers.MergeSink<Movie> {
+        .init {
+            [weak self] movie in
+            guard let self else { return }
+            self.router.trigger(.movieDetails(movie))
+        }
+    }
+    
     var searchMovie: Subscribers.MergeSink<String> {
         .init {
             [weak self] query in
             guard let self = self else { return }
+            loadingSubject.send(true)
             movieProvider.searchMovies(query: query)
                 .sink { completion in
-                    print(completion)
+                    self.loadingSubject.send(false)
+                    switch completion {
+                    case .finished:
+                        print("done")
+                    case let .failure(error):
+                        self.errorSubject.send(error)
+                    }
                 } receiveValue: { [weak self] movies in
                     guard let self = self else { return }
                     moviesSubject.send(movies)
@@ -63,22 +79,21 @@ extension PopularMoviesViewModelImpl: PopularMoviesViewModel {
         .init {
             [weak self] _ in
             guard let self = self else { return }
+            loadingSubject.send(true)
             movieProvider.getMovies(query: "")
                 .sink { completion in
-                    print(completion)
+                    self.loadingSubject.send(false)
+                    switch completion {
+                    case .finished:
+                        print("done")
+                    case let .failure(error):
+                        self.errorSubject.send(error)
+                    }
                 } receiveValue: { [weak self] movies in
                     guard let self = self else { return }
                     moviesSubject.send(movies)
                 }
                 .store(in: &cancellableBag)
-        }
-    }
-
-    var onBack: Subscribers.MergeSink<Void> {
-        .init {
-            [weak self] _ in
-            guard let self = self else { return }
-            self.router.trigger(.close)
         }
     }
 

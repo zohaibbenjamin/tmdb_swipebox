@@ -19,6 +19,25 @@ class PopularMoviesViewController: UIViewController {
     func configureBindings() {
         guard let viewModel = viewModel else { return }
         
+        viewModel.isLoading
+            .sink{ isLoading in
+               if isLoading {
+                   self.customActivityIndicatorView.frame = self.view.bounds
+                   self.view.addSubview(self.customActivityIndicatorView)
+                   self.customActivityIndicatorView.startAnimating()
+                }
+                else {
+                    self.customActivityIndicatorView.stopAnimating()
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.errorPublisher
+            .sink{ error in
+                self.showToast(message: error.localizedDescription)
+            }
+            .store(in: &cancellables)
+        
         viewModel.moviesPublisher
             .sink { movies in
                 self.popularMovies = movies.items
@@ -45,10 +64,6 @@ class PopularMoviesViewController: UIViewController {
         title = "TM DB Popular Movies"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.setNavigationBarHidden(false, animated: true)
-//        navigationItem.rightBarButtonItem = nil
-//        let button = UIBarButtonItem(image: .arrowLeft, style: .plain, target: nil, action: nil)
-//        button.tintColor = .black
-//        navigationItem.leftBarButtonItem = button
     }
 
     func setupTableView() {
@@ -67,6 +82,7 @@ class PopularMoviesViewController: UIViewController {
         configureUI()
         configureBindings()
         viewModel.onViewLoaded.send()
+       
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +99,7 @@ class PopularMoviesViewController: UIViewController {
         }
     }
     private let searchSubject = PassthroughSubject<String, Never>()
-    
+    private let customActivityIndicatorView = CustomActivityIndicatorView()
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
@@ -118,13 +134,7 @@ extension PopularMoviesViewController: UITableViewDelegate, UITableViewDataSourc
     // MARK: - UITableViewDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if tableView == transactionsTableView {
-//            let transaction = sections[indexPath.section].1[indexPath.row]
-//            viewModel.onTapTransaction.send(transaction)
-//        } else {
-//            let transaction = filteredSections[indexPath.section].1[indexPath.row]
-//            viewModel.onTapTransaction.send(transaction)
-//        }
+        viewModel.onClickMovie.send(popularMovies[indexPath.row])
     }
     
     

@@ -14,6 +14,9 @@ protocol MoviesProvider {
     func searchMovies(
         query: String
     ) -> AnyPublisher<Movies, Error>
+    func getMovieDetails(
+        movieId: String
+    ) -> AnyPublisher<Movie, Error>
 }
 
 struct MoviesProviderImpl {
@@ -25,6 +28,12 @@ struct MoviesProviderImpl {
 }
 
 extension MoviesProviderImpl: MoviesProvider {
+    func getMovieDetails(movieId: String) -> AnyPublisher<Movie, Error> {
+        network.getMovieDetail(movieId: movieId)
+            .mapError { $0 as Error }
+            .eraseToAnyPublisher()
+    }
+    
     func searchMovies(query: String) -> AnyPublisher<Movies, Error> {
         network.searchMovies(query: query)
         .mapError { $0 as Error }
